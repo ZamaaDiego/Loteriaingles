@@ -24,7 +24,17 @@
   border-radius: 15px;
   box-shadow: 0 9px #999;
 }
+button[disabled=disabled], button:disabled {
+    background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    background-color: #4CAF50;
+  
+    cursor: not-allowed;
+        background-color: rgb(229, 229, 229)
+        
 
+}
 .divv{
 justify-content: center;
 text-align: center;
@@ -46,9 +56,11 @@ display: flex;
 .button:hover {background-color: #3e8e41}
 
 .button:active {
+    
   background-color: #3e8e41;
   box-shadow: 0 5px #666;
   transform: translateY(4px);
+  
 }
         </style>
     </head>
@@ -120,6 +132,17 @@ function avanzar (){
            document.getElementById("aaa").src= baraja[c]+"in.jpg"
            const audio = new Audio(baraja[c]+"in.m4a");
 audio.play();   
+const btn = document.getElementById('ava');
+   btn.disabled = true; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = true; 
+   setTimeout(seguir,2000);
+   function seguir(){
+    const btn = document.getElementById('ava');
+   btn.disabled = false; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = false; 
+   }
     }else{
         alert("there are no more cards left...")
     }
@@ -134,6 +157,17 @@ function retrasar(){
     document.getElementById("aaa").src= baraja[c]+"in.jpg"
     const audio = new Audio(baraja[c]+"in.m4a");
 audio.play();
+const btn = document.getElementById('ava');
+   btn.disabled = true; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = true; 
+   setTimeout(seguir,2000);
+   function seguir(){
+    const btn = document.getElementById('ava');
+   btn.disabled = false; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = false; 
+   }
     }
 else if(c==0){
     alert("there are no cards behind, move on...")
