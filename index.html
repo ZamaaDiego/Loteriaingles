@@ -1,0 +1,263 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="shortcut icon" href="faviconen.png">
+        <style>
+            body{
+                background-image: url("mex.jpg");
+                background-size: auto;
+  background-repeat: no-repeat;
+            }
+            .img{
+              width: 650px;
+              height: 350px;
+            }
+.button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+button[disabled=disabled], button:disabled {
+    background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    background-color: #4CAF50;
+  
+    cursor: not-allowed;
+        background-color: rgb(229, 229, 229)
+        
+
+}
+.divv{
+justify-content: center;
+text-align: center;
+display: flex;
+}
+.btnspace{
+    margin-right: 10px;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+    
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  
+}
+.fiel{
+  width: 40%; border: solid black 10px; background-image: url(rau.jpg)
+}
+@media (max-width: 768px){
+    body{
+                background-image: url("mex.jpg");
+                background-size: auto;
+  background-repeat: no-repeat;
+    }
+  .button {
+  background-color: #4CAF50; /* Green */
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+  display: center;
+}
+button[disabled=disabled], button:disabled {
+    background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+    background-color: #4CAF50;
+  
+    cursor: not-allowed;
+        background-color: rgb(229, 229, 229)
+        
+
+}
+.divv{
+justify-content: center;
+text-align: center;
+display: flex;
+}
+.btnspace{
+    margin-right: 10px;
+}
+.button1 {
+  background-color: white; 
+  color: black; 
+  border: 2px solid #4CAF50;
+}
+
+.button1:hover {
+  background-color: #4CAF50;
+  color: white;
+}
+.button:hover {background-color: #3e8e41}
+
+.button:active {
+    
+  background-color: #3e8e41;
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+  
+}
+.img{
+  width: 500px;
+    height: 200px;
+   max-width: 100%;
+}
+.fiel{
+  width: 70%; border: solid black 10px; background-image: url(rau.jpg);max-width: 100%;
+  
+}
+}
+        </style>
+    </head>
+    <body>
+        <center>
+        <h1>SHUFFLE LOTTERY</h1>
+        <div class="divv">
+            
+        <button id="boton" class="button button1" onclick="empezar()">Start</button>
+        
+        
+        <button id="ret" class="button btnspace button1" onclick="retrasar()" >Previous</button>
+        
+        <button id="baraja" class="button btnspace button1" onclick="location.reload()">Shuffle</button>
+        <button id="ava" class="button btnspace button1" onclick="avanzar()" >Next</button>
+    </div>
+    <br><br>
+    <fieldset  class="fiel"><fieldset style="width: fit-content; padding: 0%;border: solid black 5px;"><img id="aaa" src="movistar.gif" class="img"></fieldset></fieldset>
+        
+   
+        <script>
+          
+            var c=0;
+            document.getElementById("ava").style.display='none'
+    document.getElementById("ret").style.display='none'
+    document.getElementById("baraja").style.display='none'
+    
+            const baraja = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,
+            21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40, 41,42,
+            43,44,45,46,47,48,49,50,51,52,53,54];
+      
+
+            function desordena() {
+                for (let i = baraja.length -1; i > 0; i--) {
+                    let j = Math.floor(Math.random() * (i+1));
+                    let k = baraja[i];
+                    baraja[i] = baraja[j];
+                    baraja[j] = k;
+                }
+            
+                
+            } //desordena()
+
+            
+            desordena();
+/*Después de la función desordena, el arreglo baraja va a contener
+lo números pero en orden aleatorio, es decir ya no va a ser 1,2,3, sino
+al azar, como 54,2,17....*/
+//Ahora vamos a mostrar las barajas
+
+function empezar()
+{
+    const audio = new Audio(baraja[0]+"in.m4a");
+audio.play();
+document.getElementById("aaa").style.width="400px"
+document.getElementById("aaa").style.height="500px"
+    document.getElementById("aaa").src= baraja[0]+"in.jpg"
+    
+    document.getElementById("boton").style.display='none'
+ 
+    document.getElementById("ava").style.display='block'
+    document.getElementById("ret").style.display='block'
+    document.getElementById("baraja").style.display='block'
+}
+
+function avanzar (){
+    if(c !== 53){
+        c++
+           document.getElementById("aaa").src= baraja[c]+"in.jpg"
+           const audio = new Audio(baraja[c]+"in.m4a");
+audio.play();   
+const btn = document.getElementById('ava');
+   btn.disabled = true; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = true; 
+   setTimeout(seguir,2000);
+   function seguir(){
+    const btn = document.getElementById('ava');
+   btn.disabled = false; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = false; 
+   }
+    }else{
+        alert("there are no more cards left...")
+    }
+
+      
+
+            
+           }
+function retrasar(){
+    if(c !== 0){
+    c--
+    document.getElementById("aaa").src= baraja[c]+"in.jpg"
+    const audio = new Audio(baraja[c]+"in.m4a");
+audio.play();
+const btn = document.getElementById('ava');
+   btn.disabled = true; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = true; 
+   setTimeout(seguir,2000);
+   function seguir(){
+    const btn = document.getElementById('ava');
+   btn.disabled = false; 
+   const btn2 = document.getElementById('ret');
+   btn2.disabled = false; 
+   }
+    }
+else if(c==0){
+    alert("there are no cards behind, move on...")
+}
+} 
+
+  
+                
+            
+        
+        </script>
+</center>
+    </body>
+
+</html>
